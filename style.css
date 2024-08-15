@@ -9,6 +9,19 @@ body {
     text-align: center;
     overflow: hidden; /* Ensure the animation does not overflow */
     position: relative;
+    background-color: #2e2e2e; /* Flat dark gray background */
+}
+
+/* Background image container */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('vlogo.png') no-repeat center center fixed;
+    background-size: 40% auto;
+    z-index: 0; /* Behind the container */
 }
 
 /* Container for the content */
@@ -20,7 +33,8 @@ body {
     max-width: 300px;
     width: 100%;
     position: relative;
-    z-index: 1; /* Ensure the container is above the animation */
+    z-index: 1; /* Ensure the container is above the background image */
+    text-align: center; /* Center the text within the container */
 }
 
 /* Styling for date, time, and button */
@@ -42,8 +56,8 @@ body {
 }
 
 button {
-    background-color: #1b1b1b;
-    color: #acacac;
+    background-color: #161616;
+    color: #838383;
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -53,39 +67,5 @@ button {
 }
 
 button:hover {
-    background-color: #3f0963;
-}
-
-/* Background image and gradient animation */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('vlogo.png') no-repeat center center fixed;
-    background-size: 40% auto; /* Adjust the size of the image */
-    background-position: center;
-    z-index: 0;
-}
-
-/* Gradient overlay animation */
-@keyframes backgroundAnimation {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-body::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(50, 0, 97, 0.4), rgba(0, 0, 0, 0.4), rgba(30, 0, 58, 0.4));
-    background-size: 400% 400%;
-    z-index: 0;
-    animation: backgroundAnimation 15s ease infinite;
+    background-color: #1a002b;
 }
