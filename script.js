@@ -17,11 +17,11 @@ function getRealTime() {
 }
 
 function getSimulatedTime(realTime) {
-    const startTime = new Date(830, 0, 1, 0, 0, 0); // Reference point (1 Jan 830 00:00:00 GMT+0)
-    const referenceTime = new Date(2024, 7, 15, 0, 0, 0); // Real-world reference point (1 Jan 2024 00:00:00 GMT+0)
-    const timeElapsed = realTime - referenceTime; // Milliseconds since the reference point in the real world
+    const startTime = Date.UTC(830, 0, 1, 0, 0, 0); // Reference point in UTC (1 Jan 830 00:00:00 GMT+0)
+    const referenceTime = Date.UTC(2024, 7, 15, 0, 0, 0); // Real-world reference point in UTC (1 Jan 2024 00:00:00 GMT+0)
+    const timeElapsed = realTime.getTime() - referenceTime; // Milliseconds since the reference point in the real world
     const scaledTimeElapsed = timeElapsed * 4; // Apply 4x time scale
-    return new Date(startTime.getTime() + scaledTimeElapsed);
+    return new Date(startTime + scaledTimeElapsed); // Return simulated time in UTC
 }
 
 function getSeason(month) {
